@@ -6,6 +6,21 @@
             The following tag is an action definition for a "window action",
             that is an action opening a view or a set of views
         -->
+        <record model="ir.ui.view" id="course_form_view">
+           <field name="name">course.form.view</field>
+           <field name="model">openacademy.course</field>
+           <field name="arch" type="xml">
+               <form string="Course Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+               </form>
+           </field>
+        </record>
+
         <record model="ir.actions.act_window" id="course_list_action">
             <field name="name">Courses</field>
             <field name="res_model">openacademy.course</field>
@@ -16,6 +31,7 @@
                 </p>
             </field>
         </record>
+
 
         <!-- top level menu: no parent -->
         <menuitem id="main_openacademy_menu" name="Open Academy"/>
