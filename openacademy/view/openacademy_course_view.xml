@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
     <data>
-           
-	
-	<record model="ir.ui.view" id="course_form_view">
-            <field name="name">course.form</field>
-            <field name="model">openacademy.course</field>
-            <field name="arch" type="xml">
-                <form string="Course Form">
-                <group>
-                       <field name="name"/>
-		       <field name="responsible_id"/>
-                </group>
+
+        <record model="ir.ui.view" id="course_form_view">
+           <field name="name">course.form.view</field>
+           <field name="model">openacademy.course</field>
+           <field name="arch" type="xml">
+               <form string="Course Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="responsible_id"/>
+                        </group>
                         <notebook>
                             <page string="Description">
                                 <field name="description"/>
@@ -19,10 +19,19 @@
                             <page string="About">
                                 This is an example of notebooks
                             </page>
+                            <page string="Sessions">
+                                <field name="session_ids">
+                                    <tree string="Registered sessions" editable="bottom">
+                                        <field name="name"/>
+                                        <field name="instructor_id"/>
+                                    </tree>
+                                </field>
+                            </page>
                         </notebook>
-	       </form>     
-	     </field>        
-	</record>
+                    </sheet>
+               </form>
+           </field>
+        </record>
 
         <record model="ir.ui.view" id="course_tree_view">
            <field name="name">course.tree.view</field>
@@ -47,8 +56,6 @@
             </field>
         </record>
 
-
-
         <record model="ir.actions.act_window" id="course_list_action">
             <field name="name">Courses</field>
             <field name="res_model">openacademy.course</field>
@@ -59,8 +66,6 @@
                 </p>
             </field>
         </record>
-      
-
 
         <!-- top level menu: no parent -->
         <menuitem id="main_openacademy_menu" name="Open Academy"/>
@@ -76,46 +81,6 @@
         <!-- Full id location:
              action="openacademy.course_list_action"
              It is not required when it is the same module -->
+
     </data>
 </openerp>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
