@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
     <data>
-        <!-- window action -->
-        <!--
-            The following tag is an action definition for a "window action",
-            that is an action opening a view or a set of views
-        -->
-           <record model="ir.ui.view" id="course_form_view">
+           
+	
+	<record model="ir.ui.view" id="course_form_view">
             <field name="name">course.form</field>
             <field name="model">openacademy.course</field>
             <field name="arch" type="xml">
                 <form string="Course Form">
                 <group>
                        <field name="name"/>
+		       <field name="responsible_id"/>
                 </group>
                         <notebook>
                             <page string="Description">
@@ -32,7 +30,7 @@
            <field name="arch" type="xml">
               <tree string="Course">
                   <field name="name"/>
-                  <field name="description"/>
+                  <field name="responsible_id"/>
               </tree>
            </field>
         </record>
