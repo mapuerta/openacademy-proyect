@@ -3,11 +3,13 @@
     'name': "Open Academy",
 
     'summary': """Manage trainings""",
-    'author': "Vauxoo",
-    'website': "http://vauxoo.com",
+
+    'author': "vauxoo",
+    'website': "http://www.vauxoo.com",
 
     # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base/module/module_data.xml
+    # Check https://github.com/odoo/odoo/blob/master/openerp/addons/
+    # base/module/module_data.xml
     # for the full list
     'category': 'Test',
     'version': '0.1',
@@ -18,21 +20,20 @@
     # always loaded
     'data': [
         'view/openacademy_course_view.xml',
-	'view/openacademy_session_view.xml',
+        'view/openacademy_session_view.xml',
         'view/partner_view.xml',
-	'workflow/openacademy_session_workflow.xml', 
-        'security/security.xml',
-        'security/ir.model.access.csv',
+	'workflow/openacademy_session_workflow.xml',
+	'security/security.xml',
+        'security/ir.model.access.csv', 
         'view/openacademy_wizard_view.xml',
-	'report/openacademy_session_report.xml',
-        'view/openacademy_session_board.xml',         
-        #'templates.xml',
+        'report/openacademy_session_report.xml',
+        'view/openacademy_session_board.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/openacademy_course_demo.xml',
     ],
-    'installable':True,
+    'installable': True,
+    'auto_install': False,
 }
-
 

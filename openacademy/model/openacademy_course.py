@@ -1,17 +1,12 @@
 # -*- coding: utf-8 -*-
-
-from openerp import api, fields, models, _
-
 '''
-This module create model of Course
+This module create model of Coursefrom openerp import api, fields, models, _
 '''
 
 class Course(models.Model):
-    '''
-    This class create model of Course
-    '''
+    
     _name = 'openacademy.course'  #  Model odoo name
-
+    
     name = fields.Char(string='Title', required=True)  #  Field reserved to identified name rec
     description = fields.Text(string='Description')
     responsible_id = fields.Many2one('res.users',
@@ -32,7 +27,7 @@ class Course(models.Model):
 
     @api.one  #  api.one send defaults params: cr, uid, id, context
     def copy(self, default=None):
-        print "estoy pasando por la funcion heredada de copy en cursos"
+        #print "estoy pasando por la funcion heredada de copy en cursos"
         if default is None:
            default = {}
         #  default['name'] = self.name + ' (copy)'
