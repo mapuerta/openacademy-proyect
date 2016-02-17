@@ -2,22 +2,23 @@
 
 '''
 This module create model of Course_
-'''                                
+'''
 
 from openerp import api, fields, models, _
 
+
 class Course(models.Model):
-    
-    _name = 'openacademy.course'  #  Model odoo name
-    
-    name = fields.Char(string='Title', required=True)  #  Field reserved to identified name rec
+
+    _name = 'openacademy.course'  # Model odoo name
+
+    name = fields.Char(string='Title', required=True)
+    # Field reserved to identified name rec
     description = fields.Text(string='Description')
     responsible_id = fields.Many2one('res.users',
-                     		     ondelete='set null',
-				     string="Responsible", index=True)
-    session_ids = fields.One2many('openacademy.session', 'course_id', string="Sessions")
-
-
+                                     ondelete='set null',
+                                     string="Responsible", index=True)
+    session_ids = fields.One2many('openacademy.session',
+                                  'course_id', string="Sessions")
     _sql_constraints = [
         ('name_description_check',
          'CHECK(name != description)',
@@ -28,11 +29,10 @@ class Course(models.Model):
          _("The course title must be unique")),
     ]
 
-    @api.one  #  api.one send defaults params: cr, uid, id, context
+    @api.one  # api.one send defaults params: cr, uid, id, context
     def copy(self, default=None):
-        #print "estoy pasando por la funcion heredada de copy en cursos"
         if default is None:
-           default = {}
+            default = {}
         #  default['name'] = self.name + ' (copy)'
 
         copied_count = self.search_count(
@@ -41,7 +41,5 @@ class Course(models.Model):
             new_name = _(u"Copy of {}").format(self.name)
         else:
             new_name = _(u"Copy of {} ({})").format(self.name, copied_count)
-        
         default['name'] = new_name
         return super(Course, self).copy(default)
-
